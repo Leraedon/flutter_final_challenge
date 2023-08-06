@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:movieflix/screens/detail_screen.dart';
 
-class Movie extends StatelessWidget {
+class PopularMovie extends StatelessWidget {
   final String originalTitle, backdropPath;
   final int id;
   final imagesrc = "https://image.tmdb.org/t/p/w500";
 
-  const Movie(
+  const PopularMovie(
       {super.key,
       required this.originalTitle,
       required this.backdropPath,
@@ -27,26 +27,14 @@ class Movie extends StatelessWidget {
         );
       },
       child: SizedBox(
-        width: 190,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.network(
-                '$imagesrc$backdropPath',
-              ),
+        width: 300,
+        child: Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12.0),
+            child: Image.network(
+              '$imagesrc$backdropPath',
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Text(
-                originalTitle,
-                maxLines: null,
-                style:
-                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
